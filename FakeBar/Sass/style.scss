@@ -1,0 +1,120 @@
+/* http://colorschemedesigner.com/#0u21Thxi2v5wt */
+$navheight: 50px;
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+html, body,ul, a, nav, p, h1{
+	margin:0;
+	padding:0;
+	background-color:#856F5C;
+	color:white;
+	font-family: 'Andika', sans-serif;
+}
+
+ul{
+	list-style-type:none;
+}
+
+a{
+	text-decoration:none;
+}
+
+.page-wrap{
+	max-width:900px;
+	margin:0 auto 50px auto;
+}
+.content-container{
+	margin-top:100px;
+	margin-bottom:50px;
+	box-shadow: 0 10px 20px 10px #484846;
+}
+
+.mainnav{
+	border:1px solid black;
+	box-shadow: inset 1px 1px #B08969, inset -1px -1px #B08969;
+	width:100% -1px;
+	font-size: 16px;
+	height: $navheight;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#906541), to(#5F3716));
+	.mainnav-content{
+		height:inherit;
+		width:80%;
+		margin:0 auto;
+		ul li{
+			float:left;
+			display:block;
+			height:100%;
+			a{
+				display:block;
+				position:absolute;
+				color:white;
+				background-color:transparent;
+				padding: ( ( $navheight - 26 ) / 2 ) 40px;
+				vertical-align: middle;
+				transition:all .15s ease-in-out;
+				border-bottom:0px solid #666666;
+				position:relative;
+			}
+		}
+	}
+}
+
+
+.menu-highlight{
+	position:absolute;
+	display:inline;
+	bottom:0;
+	left:0;
+	height:3px;
+	width:100%;
+	background-color:#79ACAC;
+	-webkit-transform: scale(0,1);
+	transition: all .15s ease-in-out;
+}
+
+.mainnav ul li a:hover{
+	box-shadow: inset 1px -1px #000, inset -1px 0 #000, 1px 0 #B08969;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#B08969), to(#744824))
+}
+
+.mainnav ul li a:hover .menu-highlight{
+	-webkit-transform: scale(1,1);
+}
+
+.homeimage{
+	max-width:100%;
+	margin-top:0;
+	margin-bottom:-6px;
+}
+
+.footer-content{
+	font-size:20;
+	margin:50px 20%;
+	h1{
+		color: #fff;
+		border-bottom:5px dotted #275656;
+		text-shadow: -1px -1px #271303;
+		padding-bottom:20px;
+		margin-bottom:20px;
+	}
+	p{
+		/*color:#C8A88D; */
+		color:#fff;
+		text-shadow: -1px -1px #271303;
+	}
+	.address{
+		float:left;
+	}
+	.hours{
+		float:right;
+	}
+	
+}
+small{
+		float:right;
+		font-style:italic;
+	}
