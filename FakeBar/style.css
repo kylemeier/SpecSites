@@ -7,7 +7,7 @@
 }
 
 /* line 10, Sass/style.scss */
-html, body, ul, a, nav, p, h1 {
+html, body, ul, a, nav {
   margin: 0;
   padding: 0;
   background-color: #856F5C;
@@ -72,7 +72,7 @@ a {
   position: relative;
 }
 
-/* line 67, Sass/style.scss */
+/* line 66, Sass/style.scss */
 .menu-highlight {
   position: absolute;
   display: inline;
@@ -85,30 +85,30 @@ a {
   transition: all .15s ease-in-out;
 }
 
-/* line 79, Sass/style.scss */
-.mainnav ul li a:hover {
+/* line 78, Sass/style.scss */
+.active-text, .mainnav ul li a:hover, .mainnav ul li a .active {
   box-shadow: inset 1px -1px black, inset -1px 0 black, 1px 0 #b08969;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b08969), to(#744824));
 }
 
-/* line 84, Sass/style.scss */
-.mainnav ul li a:hover .menu-highlight {
+/* line 83, Sass/style.scss */
+.active-highlight, .mainnav ul li a:hover .menu-highlight {
   -webkit-transform: scale(1, 1);
 }
 
-/* line 88, Sass/style.scss */
+/* line 87, Sass/style.scss */
 .homeimage {
   max-width: 100%;
   margin-top: 0;
   margin-bottom: -6px;
 }
 
-/* line 94, Sass/style.scss */
+/* line 93, Sass/style.scss */
 .footer-content {
   font-size: 20;
   margin: 50px 20%;
 }
-/* line 97, Sass/style.scss */
+/* line 96, Sass/style.scss */
 .footer-content h1 {
   color: #fff;
   border-bottom: 5px dotted #275656;
@@ -116,23 +116,35 @@ a {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
-/* line 104, Sass/style.scss */
+/* line 103, Sass/style.scss */
 .footer-content p {
   /*color:#C8A88D; */
   color: #fff;
   text-shadow: -1px -1px #271303;
 }
-/* line 109, Sass/style.scss */
+/* line 108, Sass/style.scss */
 .footer-content .address {
   float: left;
 }
-/* line 112, Sass/style.scss */
+/* line 111, Sass/style.scss */
 .footer-content .hours {
   float: right;
 }
 
-/* line 117, Sass/style.scss */
+/* line 116, Sass/style.scss */
 small {
   float: right;
   font-style: italic;
+}
+
+/*about.html*/
+/* line 122, Sass/style.scss */
+.about {
+  background-color: #FCFBFA;
+  color: #3D3D3D;
+  padding: 25px 75px 50px 75px;
+}
+/* line 126, Sass/style.scss */
+.about h1 {
+  margin-bottom: 25px;
 }

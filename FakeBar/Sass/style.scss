@@ -7,7 +7,7 @@ $navheight: 50px;
   clear: both;
 }
 
-html, body,ul, a, nav, p, h1{
+html, body,ul, a, nav{
 	margin:0;
 	padding:0;
 	background-color:#856F5C;
@@ -57,12 +57,11 @@ a{
 				vertical-align: middle;
 				transition:all .15s ease-in-out;
 				border-bottom:0px solid #666666;
-				position:relative;
+				position:relative;				
 			}
 		}
 	}
 }
-
 
 .menu-highlight{
 	position:absolute;
@@ -76,12 +75,12 @@ a{
 	transition: all .15s ease-in-out;
 }
 
-.mainnav ul li a:hover{
+.active-text, .mainnav ul li a:hover, .mainnav ul li a .active{
 	box-shadow: inset 1px -1px #000, inset -1px 0 #000, 1px 0 #B08969;
-	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#B08969), to(#744824))
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#B08969), to(#744824));
 }
 
-.mainnav ul li a:hover .menu-highlight{
+.active-highlight, .mainnav ul li a:hover .menu-highlight{
 	-webkit-transform: scale(1,1);
 }
 
@@ -118,3 +117,13 @@ small{
 		float:right;
 		font-style:italic;
 	}
+
+/*about.html*/
+.about{
+	background-color:#FCFBFA;
+	color:#3D3D3D;
+	padding:25px 75px 50px 75px;	
+	h1{
+		margin-bottom:25px;
+	}
+}
