@@ -15,30 +15,39 @@ html, body, ul, a, nav {
   font-family: 'Andika', sans-serif;
 }
 
-/* line 18, Sass/style.scss */
+/* line 19, Sass/style.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 22, Sass/style.scss */
+/* line 23, Sass/style.scss */
 a {
   text-decoration: none;
 }
 
-/* line 26, Sass/style.scss */
+/* line 27, Sass/style.scss */
+.barname {
+  font-family: 'Lobster', sans-serif;
+  float: right;
+  font-size: 32px;
+  margin-right: 5%;
+  color: #66ACAC;
+  text-shadow: -1px -1px #271303;
+}
+
+/* line 35, Sass/style.scss */
 .page-wrap {
   max-width: 900px;
   margin: 0 auto 50px auto;
 }
 
-/* line 30, Sass/style.scss */
+/* line 39, Sass/style.scss */
 .content-container {
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin-top: 50px;
   box-shadow: 0 10px 20px 10px #484846;
 }
 
-/* line 36, Sass/style.scss */
+/* line 44, Sass/style.scss */
 .mainnav {
   border: 1px solid black;
   box-shadow: inset 1px 1px #b08969, inset -1px -1px #b08969;
@@ -47,19 +56,19 @@ a {
   height: 50px;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#906541), to(#5f3716));
 }
-/* line 43, Sass/style.scss */
+/* line 51, Sass/style.scss */
 .mainnav .mainnav-content {
   height: inherit;
   width: 80%;
   margin: 0 auto;
 }
-/* line 47, Sass/style.scss */
+/* line 55, Sass/style.scss */
 .mainnav .mainnav-content ul li {
   float: left;
   display: block;
   height: 100%;
 }
-/* line 51, Sass/style.scss */
+/* line 59, Sass/style.scss */
 .mainnav .mainnav-content ul li a {
   display: block;
   position: absolute;
@@ -72,7 +81,7 @@ a {
   position: relative;
 }
 
-/* line 66, Sass/style.scss */
+/* line 74, Sass/style.scss */
 .menu-highlight {
   position: absolute;
   display: inline;
@@ -85,30 +94,30 @@ a {
   transition: all .15s ease-in-out;
 }
 
-/* line 78, Sass/style.scss */
+/* line 86, Sass/style.scss */
 .active-text, .mainnav ul li a:hover, .mainnav ul li a .active {
   box-shadow: inset 1px -1px black, inset -1px 0 black, 1px 0 #b08969;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b08969), to(#744824));
 }
 
-/* line 83, Sass/style.scss */
+/* line 91, Sass/style.scss */
 .active-highlight, .mainnav ul li a:hover .menu-highlight {
   -webkit-transform: scale(1, 1);
 }
 
-/* line 87, Sass/style.scss */
+/* line 95, Sass/style.scss */
 .homeimage {
   max-width: 100%;
   margin-top: 0;
   margin-bottom: -6px;
 }
 
-/* line 93, Sass/style.scss */
+/* line 101, Sass/style.scss */
 .footer-content {
   font-size: 20;
-  margin: 50px 20%;
+  margin: 0 20%;
 }
-/* line 96, Sass/style.scss */
+/* line 104, Sass/style.scss */
 .footer-content h1 {
   color: #fff;
   border-bottom: 5px dotted #275656;
@@ -116,35 +125,35 @@ a {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
-/* line 103, Sass/style.scss */
+/* line 111, Sass/style.scss */
 .footer-content p {
   /*color:#C8A88D; */
   color: #fff;
   text-shadow: -1px -1px #271303;
 }
-/* line 108, Sass/style.scss */
+/* line 116, Sass/style.scss */
 .footer-content .address {
   float: left;
 }
-/* line 111, Sass/style.scss */
+/* line 119, Sass/style.scss */
 .footer-content .hours {
   float: right;
 }
 
-/* line 116, Sass/style.scss */
+/* line 124, Sass/style.scss */
 small {
   float: right;
   font-style: italic;
 }
 
 /*about.html*/
-/* line 122, Sass/style.scss */
+/* line 130, Sass/style.scss */
 .about {
   background-color: #FCFBFA;
   color: #3D3D3D;
   padding: 25px 75px 50px 75px;
 }
-/* line 126, Sass/style.scss */
+/* line 134, Sass/style.scss */
 .about h1 {
   margin-bottom: 25px;
 }
