@@ -7,7 +7,8 @@ $navheight: 50px;
   clear: both;
 }
 
-html, body,ul, a, nav{
+
+html, body,ul, a, nav, h2, h3{
         margin:0;
         padding:0;
         background-color:#856F5C;
@@ -25,10 +26,11 @@ a{
 }
 
 .barname{
-	font-family: 'Lobster', sans-serif;
-	float:right;
-	font-size:32px;
-	margin-right:5%;
+
+        font-family: 'Lobster', sans-serif;
+        float:right;
+        font-size:32px;
+       margin-right:5%;
     color: #66ACAC;
     text-shadow: -1px -1px #271303;
 }
@@ -134,7 +136,8 @@ small{
         color:#3D3D3D;
         padding:25px 75px 50px 75px;        
         header{
-        	h1{
+
+                h1{
                 margin-bottom:25px;
                 font-size:40px;
                 text-align:left;
@@ -144,18 +147,25 @@ small{
 }
 
 .menu{
-		background-color:#FCFBFA;
-		color:#3D3D3D;
-	h1{
-		text-decoration:underline;
-	}
-	h2{
-	}
-	h3{
-		background-color:#FCFBFA;
-		color:#3D3D3D;		
-	}
 
-	text-align:center;
+                background-color:#FCFBFA;
+                color:#3D3D3D;
+        h1{
+                text-decoration:underline;
+                font-size:30px;
+        }
+        h2{
+                background-color:#FCFBFA;
+                color:#3D3D3D;
+                font-size:25px;
+                font-weight:200;
+        }
+        h3{
+                background-color:#FCFBFA;
+                color:#3D3D3D; 
+                font-size:15px;
+                padding-bottom:20px;          
+        }
 
+        text-align:center;
 }
