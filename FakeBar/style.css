@@ -6,8 +6,8 @@
   clear: both;
 }
 
-/* line 10, Sass/style.scss */
-html, body, ul, a, nav {
+/* line 11, Sass/style.scss */
+html, body, ul, a, nav, h2, h3 {
   margin: 0;
   padding: 0;
   background-color: #856F5C;
@@ -15,17 +15,17 @@ html, body, ul, a, nav {
   font-family: 'Andika', sans-serif;
 }
 
-/* line 19, Sass/style.scss */
+/* line 20, Sass/style.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 23, Sass/style.scss */
+/* line 24, Sass/style.scss */
 a {
   text-decoration: none;
 }
 
-/* line 27, Sass/style.scss */
+/* line 28, Sass/style.scss */
 .barname {
   font-family: 'Lobster', sans-serif;
   float: right;
@@ -35,19 +35,19 @@ a {
   text-shadow: -1px -1px #271303;
 }
 
-/* line 36, Sass/style.scss */
+/* line 38, Sass/style.scss */
 .page-wrap {
   max-width: 900px;
   margin: 0 auto 50px auto;
 }
 
-/* line 41, Sass/style.scss */
+/* line 43, Sass/style.scss */
 .content-container {
   margin-top: 50px;
   box-shadow: 0 10px 20px 10px #484846;
 }
 
-/* line 46, Sass/style.scss */
+/* line 48, Sass/style.scss */
 .mainnav {
   border: 1px solid black;
   box-shadow: inset 1px 1px #b08969, inset -1px -1px #b08969;
@@ -56,19 +56,19 @@ a {
   height: 50px;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#906541), to(#5f3716));
 }
-/* line 53, Sass/style.scss */
+/* line 55, Sass/style.scss */
 .mainnav .mainnav-content {
   height: inherit;
   width: 80%;
   margin: 0 auto;
 }
-/* line 57, Sass/style.scss */
+/* line 59, Sass/style.scss */
 .mainnav .mainnav-content ul li {
   float: left;
   display: block;
   height: 100%;
 }
-/* line 61, Sass/style.scss */
+/* line 63, Sass/style.scss */
 .mainnav .mainnav-content ul li a {
   display: block;
   position: absolute;
@@ -81,7 +81,7 @@ a {
   position: relative;
 }
 
-/* line 76, Sass/style.scss */
+/* line 78, Sass/style.scss */
 .menu-highlight {
   position: absolute;
   display: inline;
@@ -94,30 +94,30 @@ a {
   transition: all .15s ease-in-out;
 }
 
-/* line 88, Sass/style.scss */
+/* line 90, Sass/style.scss */
 .active-text, .mainnav ul li a:hover, .mainnav ul li a .active {
   box-shadow: inset 1px -1px black, inset -1px 0 black, 1px 0 #b08969;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b08969), to(#744824));
 }
 
-/* line 93, Sass/style.scss */
+/* line 95, Sass/style.scss */
 .active-highlight, .mainnav ul li a:hover .menu-highlight {
   -webkit-transform: scale(1, 1);
 }
 
-/* line 97, Sass/style.scss */
+/* line 99, Sass/style.scss */
 .homeimage {
   max-width: 100%;
   margin-top: 0;
   margin-bottom: -6px;
 }
 
-/* line 103, Sass/style.scss */
+/* line 105, Sass/style.scss */
 .footer-content {
   font-size: 20;
   margin: 0 20%;
 }
-/* line 106, Sass/style.scss */
+/* line 108, Sass/style.scss */
 .footer-content h1 {
   color: #fff;
   border-bottom: 5px dotted #275656;
@@ -125,53 +125,63 @@ a {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
-/* line 113, Sass/style.scss */
+/* line 115, Sass/style.scss */
 .footer-content p {
   /*color:#C8A88D; */
   color: #fff;
   text-shadow: -1px -1px #271303;
 }
-/* line 118, Sass/style.scss */
+/* line 120, Sass/style.scss */
 .footer-content .address {
   float: left;
 }
-/* line 121, Sass/style.scss */
+/* line 123, Sass/style.scss */
 .footer-content .hours {
   float: right;
 }
 
-/* line 126, Sass/style.scss */
+/* line 128, Sass/style.scss */
 small {
   float: right;
   font-style: italic;
 }
 
 /*about.html*/
-/* line 132, Sass/style.scss */
+/* line 134, Sass/style.scss */
 .content {
   background-color: #FCFBFA;
   color: #3D3D3D;
   padding: 25px 75px 50px 75px;
 }
-/* line 137, Sass/style.scss */
+/* line 140, Sass/style.scss */
 .content header h1 {
   margin-bottom: 25px;
   font-size: 40px;
   text-align: left;
 }
 
-/* line 146, Sass/style.scss */
+/* line 149, Sass/style.scss */
 .menu {
   background-color: #FCFBFA;
   color: #3D3D3D;
   text-align: center;
 }
-/* line 149, Sass/style.scss */
+/* line 153, Sass/style.scss */
 .menu h1 {
   text-decoration: underline;
+  font-size: 30px;
 }
-/* line 154, Sass/style.scss */
+/* line 157, Sass/style.scss */
+.menu h2 {
+  background-color: #FCFBFA;
+  color: #3D3D3D;
+  font-size: 25px;
+  font-weight: 200;
+}
+/* line 163, Sass/style.scss */
 .menu h3 {
   background-color: #FCFBFA;
   color: #3D3D3D;
+  font-size: 15px;
+  padding-bottom: 20px;
 }
