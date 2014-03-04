@@ -1,0 +1,75 @@
+body {
+  background: #D92C00; }
+
+nav {
+  position: relative;
+  width: 50%;
+  left: 25%;
+  height: 50px;
+  background: #D90B4B; }
+  nav a {
+    display: block;
+    position: relative;
+    float: left;
+    padding: 0 20px;
+    line-height: 50px;
+    border-right: 1px solid #980B4B;
+    font-size: 1em;
+    color: #fff; }
+    nav a:hover {
+      background-color: #980B4B; }
+
+.content {
+  position: relative;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  background: #fff;
+  width: 50%;
+  left: 25%; }
+  .content p {
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 70%; }
+  .content h1 {
+    position: relative;
+    left: 25%;
+    font-size: 1.5em;
+    margin-top: 20px; }
+
+aside {
+  position: absolute;
+  z-index: 999;
+  top: 100px;
+  right: -10%;
+  width: 20%;
+  padding: 10px;
+  height: 90%;
+  color: #fff;
+  background: #FF7D0D;
+  border-top: 5px solid #E8510C; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: inherit;
+  background: #C2100A;
+  color: #fff; }
+
+@media (max-width: 410px) {
+  nav {
+    position: absolute;
+    height: 100px;
+    width: 300px;
+    font-size: 1.5em;
+    background: none;
+    left: 50%;
+    margin-left: -150px; }
+
+  nav a {
+    background: #FF0D5A;
+    border: 1px solid #E8170C; }
+
+  nav a:nth-child(4), nav a:nth-child(5) {
+    left: 50px; } }
