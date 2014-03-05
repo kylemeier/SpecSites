@@ -6,16 +6,24 @@ nav{
 	width:50%;
 	left:25%;
 	height:50px;
-	background:#D90B4B;
 	a{
 		display:block;
 		position:relative;
 		float: left;
 		padding:0 20px;
 		line-height:50px;
-		border-right: 1px solid #980B4B;
+		border-right: 1px solid #FF0B4B;
+		border-left: 1px solid #840B4B;
+		background:#980B4B;
+		background: linear-gradient(#C70B4B, #980B4B);
 		font-size:1em;
 	color:#fff;
+	&:first-child{
+		border-radius: 10px 0 0 10px;
+	}
+	&:last-child{
+		border-radius: 0 10px 10px 0;
+	}
 	&:hover{
 		background-color:#980B4B;
 	}
@@ -59,6 +67,7 @@ aside{
 
 footer{
 	position:fixed;
+	width:100%;
 	bottom:0;
 	height:50px;
 	width:inherit;

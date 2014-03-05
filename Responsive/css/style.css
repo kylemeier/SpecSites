@@ -5,17 +5,23 @@ nav {
   position: relative;
   width: 50%;
   left: 25%;
-  height: 50px;
-  background: #D90B4B; }
+  height: 50px; }
   nav a {
     display: block;
     position: relative;
     float: left;
     padding: 0 20px;
     line-height: 50px;
-    border-right: 1px solid #980B4B;
+    border-right: 1px solid #FF0B4B;
+    border-left: 1px solid #840B4B;
+    background: #980B4B;
+    background: linear-gradient(#c70b4b, #980b4b);
     font-size: 1em;
     color: #fff; }
+    nav a:first-child {
+      border-radius: 10px 0 0 10px; }
+    nav a:last-child {
+      border-radius: 0 10px 10px 0; }
     nav a:hover {
       background-color: #980B4B; }
 
@@ -51,6 +57,7 @@ aside {
 
 footer {
   position: fixed;
+  width: 100%;
   bottom: 0;
   height: 50px;
   width: inherit;
