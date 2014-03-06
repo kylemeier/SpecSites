@@ -8,7 +8,7 @@ $navheight: 50px;
 }
 
 
-html, body,ul, a, nav, h2, h3{
+html, body,ul, nav, h2, h3{
         margin:0;
         padding:0;
         background-color:#856F5C;
@@ -24,20 +24,20 @@ ul{
 
 a{
         text-decoration:none;
+        color:#fff;
 }
 
 .barname{
 
-        font-family: 'Lobster', sans-serif;
-        float:right;
-        font-size:2em;
-       margin-right:5%;
+    font-family: 'Lobster', sans-serif;
+    float:right;
+    font-size:2em;
+    margin-right:5%;
     color: #66ACAC;
     text-shadow: -1px -1px #271303;
 }
 
 .page-wrap{
-        /*max-width:900px;*/
         max-width:60%;
         margin:0 auto 50px auto;
 }
@@ -48,30 +48,42 @@ a{
 }
 
 .mainnav{
-        border:1px solid black;
-        box-shadow: inset 1px 1px #B08969, inset -1px -1px #B08969;
-        width:100% -1px;
-        font-size: 1em;
-        height: $navheight;
-        background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#906541), to(#5F3716));
-        .mainnav-content{
-            height:inherit;
-            width:80%;
-            margin:0 auto;
-                    a{
-                                display:block;
-                                float:left;
-                                position:absolute;
-                                color:white;
-                                background-color:transparent;
-                                padding: ( ( $navheight - 26 ) / 2 ) 40px;
-                                vertical-align: middle;
-                                transition:all .15s ease-in-out;
-                                position:relative;                           
-                        }
+    border:1px solid #000;
+    box-sizing:border-box;
+    box-shadow: inset 1px 1px #B08969, inset -1px -1px #B08969;
+    width:100%;
+    font-size: 1em;
+    height: $navheight;
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#906541), to(#5F3716));
+    .mainnav-content{
+        height:inherit;
+        width:80%;
+        margin:0 auto;
+        background:none;    
+        li{
+            float:left;
+            color:#fff; 
+            a{
+                height:100%;
+                padding:12px 40px;
+                transition:all .15s ease-in-out;
+                position:relative;
+                line-height:$navheight;
+            }
         }
+        
+    }
 }
 
+#active-nav-text, .mainnav-content a:hover{
+    background:#5D412A;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+    color: #66ACAC;
+}
+
+#navicon{
+    display:none;
+}
 .nav-highlight{
         position:absolute;
         display:inline;
@@ -84,12 +96,7 @@ a{
         transition: all .15s ease-in-out;
 }
 
-#active-nav-text, .mainnav a:hover, .mainnav a .active{
-        background:#5D412A;
-        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
-        border-right: 1px solid rgba(0, 0, 0, 0.2);
-        color: #66ACAC;
-}
+
 
 .active-highlight, a:hover .nav-highlight{
         -webkit-transform: scale(1,1);
@@ -176,25 +183,80 @@ small{
 @media (max-width: 1660px){
     .barname{
     float:none;
-    margin-left:auto;
-    margin-right:auto;
+    margin:0 auto;
     font-size:2.5em;
-    width:10em;
+    width:8em;
     }
 }
-@media (max-width: 1435px){
-    /*navbar breaks - stack it three by two*/
+@media (max-width: 1450px){
     .mainnav{
-        height:$navheight*2;
+        .mainnav-content{
+            li{
+                a{
+                    padding-left: 20px;
+                    padding-right:20px;
+                }
+            }
+        }
     }
-   .nav-highlight{
-        background-color:transparent;
-
+    .footer-content{
+        font-size:1em;
     }
 
 }
 
-@media (max-width:1260px){
-    /*address/hours break, stack them instead*/
+@media (max-width:1060px){
+.mainnav{
+    height:auto;
+    background:#906541;
+    .mainnav-content{
+        width:100%;
+        background:none; 
+        display:none;  
+        li{
+            float:none;
+            color:#fff; 
+            a{
+                text-align:center;
+                display:block;
+                width:100%;
+                box-sizing:border-box;
+                padding:0 0 0 10px;
+                position:relative;
+                line-height:$navheight;
+            }
+        }
+        
+    }
 }
+.nav-highlight{
+    display:none;
+}
+#navicon{
+    text-align:center;
+    display: block;
+    position:relative;
+    width:100%;
+    height:$navheight;
+    background:#45301F;
+    font-size:1.5em;
+    line-height:$navheight; 
+    border:1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    box-shadow: inset 1px 1px #B08969, inset -1px -1px #B08969;
+
+}
+
+ #active-nav-text, .mainnav-content a:hover{
+    background:none;;
+    box-shadow: none;
+    color: #66ACAC;
+}
+   
+
+}
+
+
+
 
