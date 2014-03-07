@@ -168,7 +168,8 @@ small {
     width: auto;
     background: #FCFBFA;
     box-shadow: 0 5px 10px 5px #484846;
-    padding: 1em; }
+    padding: 1em;
+    margin-bottom: 25px; }
 
 @media (max-width: 1660px) {
   .barname {
@@ -240,17 +241,30 @@ small {
     box-shadow: none;
     color: #66ACAC; }
 
+  /*about page*/
+  .content {
+    font-size: .8em;
+    padding: 25px 25px 50px 25px; }
+
+  /******/
+  /*menu page*/
+  .content header h1 {
+    text-align: center; }
+
+  .menu {
+    font-size: .9em; }
+
+  /******/
   /*reservations page*/
   .reservations {
     position: relative; }
     .reservations p {
       width: 100%; }
-    .reservations aside {
-      position: relative;
-      float: none;
-      top: 0%;
-      left: 0%;
-      width: auto; }
+
+  /*******/
+  /*contact page*/
+  .contact p {
+    text-align: center; }
 
   .footer-content {
     font-size: .8em; }
