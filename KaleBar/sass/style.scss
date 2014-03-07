@@ -250,6 +250,19 @@ small{
 }
 
 @media (max-width:1060px){
+.barname{
+    font-size:2em;
+    margin-bottom:-1em;
+}
+.page-wrap{
+        max-width:100%;
+        margin:0 10px;
+}
+
+.content-container{
+        margin-top:50px;
+        box-shadow: 0 10px 20px 10px #484846;
+}
 .mainnav{
     height:auto;
     background:#906541;
@@ -317,7 +330,7 @@ small{
 }
 
 .footer-content{
-        font-size:1.25em;
+        font-size:.8em;
         h1{
                 color: #fff;
                 border-bottom:5px dotted #275656;
