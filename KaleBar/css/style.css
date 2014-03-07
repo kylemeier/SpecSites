@@ -1,4 +1,19 @@
 /* http://colorschemedesigner.com/#0u21Thxi2v5wt */
+@font-face {
+  font-family: 'addsubtract';
+  src: url("../fonts/addsubtract.eot?eumz6m");
+  src: url("../fonts/addsubtract.eot?#iefixeumz6m") format("embedded-opentype"), url("../fonts/addsubtract.woff?eumz6m") format("woff"), url("../fonts/addsubtract.ttf?eumz6m") format("truetype"), url("../fonts/addsubtract.svg?eumz6m#addsubtract") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+#navicon-add:before {
+  font-family: 'addsubtract';
+  content: "\e600"; }
+
+#navicon-subtract:before {
+  font-family: 'addsubtract';
+  content: "\e601"; }
+
 .group:after {
   content: "";
   display: table;
@@ -64,6 +79,7 @@ a {
   color: #66ACAC; }
 
 #navicon {
+  font-family: 'WebFont';
   display: none; }
 
 .nav-highlight {
@@ -145,11 +161,11 @@ small {
     width: 80%; }
   .reservations aside {
     font-size: .75em;
-    position: absolute;
-    float: right;
+    position: relative;
+    float: none;
     top: 0%;
-    left: 100%;
-    width: 20%;
+    left: 0%;
+    width: auto;
     background: #FCFBFA;
     box-shadow: 0 5px 10px 5px #484846;
     padding: 1em; }

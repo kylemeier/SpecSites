@@ -2,15 +2,17 @@ $(function() {
     var pull        = $('#navicon');
         menu        = $('.mainnav .mainnav-content');
         counter  	= 0;
-          
+
+
     $(pull).on('click', function(e) {
         e.preventDefault();
         counter++;
         menu.slideToggle(function(){
         	if(counter % 2 > 0){
-    			$("#navicon-toggle").replaceWith( "<span id='navicon-toggle'>⬆</span>");
+    			$("#navicon-add").replaceWith( "<span id='navicon-subtract'></span>");
+
     		}else{
-    			$("#navicon-toggle").replaceWith( "<span id='navicon-toggle'>⬇</span>");
+    			$("#navicon-subtract").replaceWith( "<span id='navicon-add'></span>");
     		}
     	});
     });
