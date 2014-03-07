@@ -1,4 +1,10 @@
 $(function() {
+    $(document).ready(function() {
+        $(".page-wrap").hide();
+    });
+    $(window).load(function() {
+        $(".page-wrap").show();
+    });
     var pull        = $('#navicon');
         menu        = $('.mainnav .mainnav-content');
         counter  	= 0;
