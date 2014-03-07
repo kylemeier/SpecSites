@@ -5,10 +5,10 @@ $(function() {
     $(window).load(function() {
         $(".page-wrap").show();
     });
+
     var pull        = $('#navicon');
         menu        = $('.mainnav .mainnav-content');
         counter  	= 0;
-
 
     $(pull).on('click', function(e) {
         e.preventDefault();
@@ -29,6 +29,7 @@ $(window).resize(function(){
     if(w > 1050 && menu.is(':hidden')) {
         menu.removeAttr('style');
     }
+});
     // picture fill
     (function( w ){
 
@@ -79,7 +80,6 @@ $(window).resize(function(){
         }
         }
     };
-
     // Run on resize and domready (w.load as a fallback)
     if( w.addEventListener ){
         w.addEventListener( "resize", w.picturefill, false );
@@ -95,4 +95,3 @@ $(window).resize(function(){
     }
 
 }( this ));
-});
