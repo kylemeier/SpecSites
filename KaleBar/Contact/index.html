@@ -39,8 +39,16 @@
                 <header>
                     <h1>Contact Us</h1>
                 </header>
-                <p>Please never contact us.
-                </p>
+                <form action="#" method="foo">
+                    <label for="name">Full name</label>
+                    <input type="text" name="name" id="name" placeholder="John Doe" required>                    
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" placeholder="name@domain.com" required>
+                    <label for="comments">Your questions/comments</label>
+                    <textarea name="comments" id="comments"placeholder="Enter your questions or comments here" required></textarea>
+                    <input type="reset" class="button" value="Clear Form">
+                    <input type="submit" class="button">
+                </form>
             </div>
         </div>
     </div>                                           

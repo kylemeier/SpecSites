@@ -11,7 +11,7 @@ $(function() {
         counter  	= 0;
 
     $(pull).on('click', function(e) {
-        e.preventDefault();
+        e.stopPropagation();
         counter++;
         menu.slideToggle(function(){
         	if(counter % 2 > 0){

@@ -224,6 +224,48 @@ small{
     }
 }
 
+/******/
+/*contact page*/
+
+
+.contact{
+    label{
+        display:block;
+        margin-top:10px;
+    }
+    input,textarea{
+        border-radius:3px;
+        background-image:linear-gradient(#F0F0F0,#F9F9F9);
+        border:1px solid #D6D6D6;
+    }
+    input{
+        width:80%;
+        height:20px;
+    }
+
+  textarea{
+    resize:none; 
+    display:block;
+    height:100px;
+    width:100%;
+    margin-bottom:20px;
+  }
+    .button{
+        background-image:linear-gradient(#F9F9F9,#F0F0F0);
+        float:right;
+        width:auto;
+        height:30px;
+        &:hover{
+         background-image:linear-gradient(#F0F0F0,#F9F9F9);
+        &:active{
+          background-image:linear-gradient(#E0E0E0,#F0F0F0);  
+        }
+        }
+    }
+
+}
+/******/
+
 
 @media (max-width: 1660px){
     .barname{

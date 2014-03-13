@@ -1,0 +1,1 @@
+var totalTrains=12,trainsOperational=8;console.log("There are "+trainsOperational+" today.");

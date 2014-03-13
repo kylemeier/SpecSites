@@ -171,6 +171,35 @@ small {
     padding: 1em;
     margin-bottom: 25px; }
 
+/******/
+/*contact page*/
+.contact label {
+  display: block;
+  margin-top: 10px; }
+.contact input, .contact textarea {
+  border-radius: 3px;
+  background-image: linear-gradient(#f0f0f0, #f9f9f9);
+  border: 1px solid #D6D6D6; }
+.contact input {
+  width: 80%;
+  height: 20px; }
+.contact textarea {
+  resize: none;
+  display: block;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 20px; }
+.contact .button {
+  background-image: linear-gradient(#f9f9f9, #f0f0f0);
+  float: right;
+  width: auto;
+  height: 30px; }
+  .contact .button:hover {
+    background-image: linear-gradient(#f0f0f0, #f9f9f9); }
+    .contact .button:hover:active {
+      background-image: linear-gradient(#e0e0e0, #f0f0f0); }
+
+/******/
 @media (max-width: 1660px) {
   .barname {
     float: none;
