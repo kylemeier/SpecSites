@@ -190,8 +190,8 @@ small {
   width: 100%;
   margin-bottom: 20px; }
 .contact .button {
+  outline: none;
   background-image: linear-gradient(#f9f9f9, #f0f0f0);
-  float: right;
   width: auto;
   height: 30px; }
   .contact .button:hover {
