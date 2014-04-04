@@ -40,7 +40,7 @@ a {
   font-size: 2em;
   margin-right: 5%;
   color: #599025;
-  text-shadow: -1px -1px #271303; }
+  text-shadow: 0px 1px 1px #271303; }
 
 .page-wrap {
   max-width: 60%;
@@ -107,13 +107,13 @@ a {
   .footer-content h1 {
     color: #fff;
     border-bottom: 5px dotted #3A5D18;
-    text-shadow: -1px -1px #271303;
+    text-shadow: 0px 1px 1px #271303;
     padding-bottom: 20px;
     margin-bottom: 20px; }
   .footer-content p {
     /*color:#C8A88D; */
     color: #fff;
-    text-shadow: -1px -1px #271303; }
+    text-shadow: 0px 1px 1px #271303; }
   .footer-content .address {
     float: left; }
   .footer-content .hours {
@@ -262,7 +262,6 @@ small {
     box-shadow: inset 1px 1px #B08969, inset -1px -1px #B08969; }
 
   #navicon-toggle {
-    font-size: em;
     text-shadow: -1px -1px #422E1E; }
 
   #active-nav-text, .mainnav-content a:hover {
