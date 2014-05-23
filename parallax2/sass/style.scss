@@ -1,0 +1,30 @@
+.background{
+	background: url(../images/mainbg.jpg) no-repeat;
+	// background-size:cover;
+	height:100%;
+	width:100%;
+	background-size:cover;
+	position:fixed;
+}
+.wrapper{
+	display:none;
+}
+
+#intro{
+	position:fixed;
+	color:#fff;
+	top:50%;
+	width:100%;
+	text-align:center;
+	font-size:5em;
+}
+
+#second-section, #third-section{
+	position:fixed;
+	color:#fff;
+	height:100%;
+	width:100%;
+	top:100%;
+	font-size:3em;
+
+}
