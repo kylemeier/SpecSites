@@ -4,8 +4,14 @@ $(window).resize(function(){
 });
 
 $(window).scroll(function(){
-	console.log($(document).scrollTop());
+	var newY = $(document).scrollTop() / 2;
 	$('#main').css('background-position', function(){
-		return '50% calc(50% + ' + $(document).scrollTop() / 2 + 'px)';
+		return '50% '+newY+'px';
+	});
+	$('#main-text').css('opacity', function(){
+		return 1 - $(document).scrollTop() *.005;
+	});
+	$('#main-text').css('translateY', function(){
+		return '0px , '+1 - $(document).scrollTop() *.005 + ', 0px)';
 	});
 })
