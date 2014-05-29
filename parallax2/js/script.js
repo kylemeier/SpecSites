@@ -22,34 +22,57 @@ $ (function(){
           animations: [
             {
               element: '.first-line',
-              translateY: -10,
+              translateY: -1,
               opacity: 0
             },{
               element: '.second-line',
-              translateY:-500,
+              translateY:-.5,
+              opacity: 0,
+              rotate: 180
             }
           ]
         },{
           wrapper: '#second-section',
-          duration: 1000,
+          duration: 2000,
           animations: [
             {
               element: '.third-line',
-              translateY: -500,
-              opacity: 1
+              translateY: -6,
+              translateX: -13.8
             },{
               element: '.fourth-line',
-              translateY: -500
+              translateY: -5
             }      
+          ]
+        },{
+          wrapper: '#second-section',
+          duration: 2000,
+          animations: [
+            {
+              element: '.third-line',
+              translateY: [-6,6],
+              translateX: [-13.8, -13.8],
+              opacity: 0
+            },{
+              element: '.fourth-line',
+              translateY: [-5,5]
+            }//,{
+            //   element: '.5-line',
+            //   translateY: -5,
+            //   opacity: 1
+            // },{
+            //   element: '.6-line',
+            //   translateY: -5
+            // }      
           ]
         }
       ];
 
 
 init = function(){
-  console.log('got here');
   scrollIntervalID = setInterval(updatePage,10);
   setupValues();
+  $window.resize(resizeHandler);
 }
 
 /**
@@ -75,7 +98,6 @@ init = function(){
   }
 
 updatePage = function(){
-  console.log(scrollTop);
   window.requestAnimationFrame(function(){
     setScrollTops();
     if (scrollTop >= 0 && scrollTop <= (bodyHeight - windowHeight)){
@@ -163,7 +185,7 @@ animateElements = function(){
     opacity = calcValue(animation, 'opacity');
 
     $(animation.element).css({
-      'transform': 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0) scale(' + scale + ') rotate(' + rotate + 'deg)',
+      'transform': 'translate3d(' + translateX + 'em, ' + translateY + 'em, 0) scale(' + scale + ') rotate(' + rotate + 'deg)',
       'opacity' : opacity 
     })
   }
@@ -205,6 +227,8 @@ animateElements = function(){
         $(keyframes[currentKeyframe].wrapper).show();
         currentWrapper = keyframes[currentKeyframe].wrapper;
       }
+    }
+    resizeHandler = function(){
     }
  init();
 

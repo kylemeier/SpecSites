@@ -1,5 +1,5 @@
 .background {
-  background: url(../images/mainbg.jpg) no-repeat;
+  background: #000;
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -23,3 +23,7 @@
   width: 100%;
   top: 100%;
   font-size: 3em; }
+
+.third-line {
+  position: fixed;
+  left: 50%; }
