@@ -1,7 +1,7 @@
 .background{
-	background: url(../images/tangram1.gif) no-repeat;
+	// background: url(../images/tangram1.gif) no-repeat;
 	// background-size:cover;
-	// background:#000;
+	background:#000;
 	height:100%;
 	width:100%;
 	// background-size:cover;
@@ -14,13 +14,14 @@
 #intro{
 	position:fixed;
 	color:#fff;
-	top:50%;
-	width:100%;
+	top:40%;
+	width:80%;
+	margin:0 10%;
 	text-align:center;
-	font-size:5em;
+	font-size:3em;
 }
 
-#second-section, #third-section{
+#tangram, #third-section{
 	position:fixed;
 	color:#fff;
 	height:100%;
@@ -30,13 +31,18 @@
 
 }
 
+.tangram{
+
+}
+
 .square{
 	position:fixed;
 	height: 70px; 
 	width: 70px; 
-	background:grey;
-	top:-431px;
-	left:117px;
+	background:#fff;
+	top:-146px;
+	left:50%;
+	margin-left: 15px;
 }
 
 .triangle-small-1, .triangle-small-2{
@@ -45,8 +51,20 @@
 	height:0;
 	border-top: 0px solid transparent;
 	border-right: 50px solid transparent;
-	border-bottom: 50px red solid;
+	border-bottom: 50px #fff solid;
 	border-left: 50px solid transparent;
+}
+
+.triangle-small-1{
+	top:-186px;
+	left:50%;
+	margin-left:26px;
+}
+
+.triangle-small-2{
+	top:-110px;
+	left:50%;
+	margin-left: -50px;
 }
 
 .triangle-medium{
@@ -55,11 +73,13 @@
 	height:0;
 	border-top: 0px solid transparent; 
 	border-right: 71px solid transparent; 
-	border-bottom: 71px green solid; 
+	border-bottom: 71px #fff solid; 
 	border-left: 71px solid transparent;
     top:-356px;
-    // top:1000px;
+    top:-71px;
 	left:107px;
+	left:50%;
+	margin-left: 5px;
 }
 
 .triangle-large-1, .triangle-large-2{
@@ -68,38 +88,37 @@
 	height:0;
     border-top: 0px solid transparent;
     border-right: 100px solid transparent; 
-    border-bottom: 100px green solid; 
+    border-bottom: 100px #fff solid; 
     border-left: 100px solid transparent;
 }
 
-
-
-.parallelogram{
-	position:fixed;
-	height:49px;
-	width:99px;
-	background:grey;
-	top:-344px;
-	left:26px;
-}
-
-.triangle-small-1{
-	top:-471px;
-	left:128px;
-}
-
-.triangle-small-2{
-	top:-395px;
-	left:52px;
-}
-
 .triangle-large-1{
-	top:-497px;
+	top:-212px;
 	left:2px;
+	left:50%;
+	margin-left:-100px;
 
 }
 
 .triangle-large-2{
-	top:-446px;
+	top:-161px;
 	left:-49px;
+	left:50%;
+	margin-left:-151px;
 }
+
+.parallelogram{
+	position:fixed;
+	height:48px;
+	width:99px;
+	background:#fff;
+	top:-344px;
+	top:-59px;
+	left:26px;
+	left:50%;
+	margin-left: -75px;
+}
+
+
+
+

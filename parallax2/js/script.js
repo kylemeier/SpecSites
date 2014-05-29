@@ -22,96 +22,168 @@ $ (function(){
           animations: [
             {
               element: '.first-line',
-              translateY: -1,
+              translateX: -5,
               opacity: 0
             },{
               element: '.second-line',
-              translateY:-.5,
+              translateX: 5,
               opacity: 0,
-              rotate: 180
             }
           ]
         },{
-          wrapper: '#second-section',
+          wrapper: '#tangram',
           duration: 1000,
           animations: [
             {
               element: '.square',
-              translateY: 20,
+              translateY: 5,
               rotate: [45,45]
-              // translateX: 10
             },{
               element: '.triangle-small-1',
-              translateY: 20,
+              translateY: 5,
               rotate: [-90,-90]
-              // translateX: -10,
             },{
               element: '.triangle-small-2',
-              translateY: 20,
-              // translateX: -10
+              translateY: 5,
             },{
               element: '.triangle-medium',
-              translateY: 20,
+              translateY: 5,
               rotate: [135,135]
-              // translateX: 10
             },{
               element: '.triangle-large-1',
-              translateY: 20,
+              translateY: 5,
               rotate: [180,180]
-              // translateX: 10
             },{
               element: '.triangle-large-2',
-              translateY: 20,
+              translateY: 5,
               rotate: [90,90]
-              // translateX: -3
             },{
               element: '.parallelogram',
-              translateY: 20,
-              skew: [-45,-45]
-              // translateX: 3   
+              translateY: 5,
+              skew: [-45,-45]  
             }     
           ]
         },{
-          wrapper: '#second-section',
-          duration: 1500,
+          wrapper: '#tangram',
+          duration: 1000,
           animations: [
             {
               element: '.square',
-              translateY: [10, 10],
-              opacity: 1
-              // translateX: 10
+              translateY: [5,9.5],
+              translateX: -1.5,
+              rotate: [45,45]
             },{
               element: '.triangle-small-1',
-              translateY: [10, 10],
-              opacity: 1
-              // translateX: -10,
+              translateY: [5,6],
+              translateX: 2,
+              rotate: [-90,-90]
             },{
               element: '.triangle-small-2',
-              translateY: [10, 10],
-              opacity: 1,
-              rotate: [180,180]
-              // translateX: -10
+              translateY: [5,7.5],
+              translateX: -5.5
             },{
               element: '.triangle-medium',
-              translateY: [10, 10],
-              opacity: 1,
+              translateY: [5,7],
+              translateX: 1,
+              rotate: [135,135]
             },{
               element: '.triangle-large-1',
-              translateY: [10, 10],
-              opacity: 1,
-              rotate: [180,180],
+              translateY: [5,8],
+              rotate: [180,180]
             },{
               element: '.triangle-large-2',
-              translateY: [10, 10],
-              translateX: -2,
-              rotate: -90
+              translateY: [5,5],
+              translateX: -3,
+              rotate: [90,90]
             },{
               element: '.parallelogram',
-              translateY: [10, 10],
-              rotate: [180,180],
-              // translateX: 2
+              translateY: [5,8],
+              translateX: -6,
+              skew: [-45,-45]  
             }     
           ]
+        }//,{
+        //   wrapper: '#tangram',
+        //   duration: 100,
+        //   animations: [
+        //     {
+        //       element: '.square',
+        //       translateY: [6,6],
+        //       translateX: [2,2],
+        //       rotate: [45,45]
+        //     },{
+        //       element: '.triangle-small-1',
+        //       translateY: [8,8],
+        //       translateX: [3,3],
+        //       rotate: [-90,-90]
+        //     },{
+        //       element: '.triangle-small-2',
+        //       translateY: [9,9]
+        //     },{
+        //       element: '.triangle-medium',
+        //       translateY: [10,10],
+        //       translateX: [3,3],
+        //       rotate: [135,135]
+        //     },{
+        //       element: '.triangle-large-1',
+        //       translateY: [7,7],
+        //       rotate: [180,180]
+        //     },{
+        //       element: '.triangle-large-2',
+        //       translateY: [10,10],
+        //       translateX: [-3,-3],
+        //       rotate: [90,90]
+        //     },{
+        //       element: '.parallelogram',
+        //       translateY: [10,10],
+        //       skew: [-45,-45]  
+        //     }     
+        //   ]
+        // },
+          ,{
+          wrapper: '#tangram',
+          duration: 1000,
+          animations: [
+            {
+              element: '.square',
+              translateY: [9.5,7],
+              translateX: [-1.5,1],
+              rotate: [45,45]
+            },{
+              element: '.triangle-small-1',
+              translateY: [5,6],
+              translateX: 2,
+              rotate: [-90,-90]
+            },{
+              element: '.triangle-small-2',
+              translateY: [5,7.5],
+              translateX: -5.5
+            },{
+              element: '.triangle-medium',
+              translateY: [5,7],
+              translateX: 1,
+              rotate: [135,135]
+            },{
+              element: '.triangle-large-1',
+              translateY: [8,11],
+              translateX: 1,
+              rotate: [180,135]
+            },{
+              element: '.triangle-large-2',
+              translateY: [5,8.3],
+              translateX: [-3,.4],
+              rotate: [90,-45]
+            },{
+              element: '.parallelogram',
+              translateY: [5,8],
+              translateX: -6,
+              skew: [-45,-45]  
+            }     
+          ]
+        },{
+          wrapper: '#ending',
+          duration: 5000,
+          animations: []
         }
       ];
 
