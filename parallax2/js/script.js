@@ -37,36 +37,37 @@ $ (function(){
           animations: [
             {
               element: '.square',
-              translateY: 10,
+              translateY: 20,
+              rotate: [45,45]
               // translateX: 10
             },{
               element: '.triangle-small-1',
-              translateY: 10,
-              rotate: [-45,-45]
+              translateY: 20,
+              rotate: [-90,-90]
               // translateX: -10,
             },{
               element: '.triangle-small-2',
-              translateY: 10,
-              rotate: [180,180]
+              translateY: 20,
               // translateX: -10
             },{
               element: '.triangle-medium',
-              translateY: 10,
+              translateY: 20,
+              rotate: [135,135]
               // translateX: 10
             },{
               element: '.triangle-large-1',
-              translateY: 10,
-              rotate: [-135,-135]
+              translateY: 20,
+              rotate: [180,180]
               // translateX: 10
             },{
               element: '.triangle-large-2',
-              translateY: 10,
-              rotate: [135,135]
+              translateY: 20,
+              rotate: [90,90]
               // translateX: -3
             },{
               element: '.parallelogram',
-              translateY: 10,
-              rotate: [270,270],
+              translateY: 20,
+              skew: [-45,-45]
               // translateX: 3   
             }     
           ]
