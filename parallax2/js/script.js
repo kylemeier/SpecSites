@@ -1,7 +1,7 @@
 (function(){ 
 $ (function(){
   var firstVar = 0,
-      properties = ['translateX','translateY', 'opacity', 'rotate', 'scale'];
+      properties = ['translateX','translateY', 'opacity', 'rotate', 'scale', 'skew'];
       $doc = $(document),
       $window = $(window),
       $body = $('body'),
@@ -36,17 +36,41 @@ $ (function(){
           duration: 2000,
           animations: [
             {
-              element: '.third-line',
-              translateY: -6,
-              translateX: -13.8
+              element: '.item-1',
+              translateY: 10,
+              // translateX: 10
             },{
-              element: '.fourth-line',
-              translateY: -5
-            }      
+              element: '.item-2',
+              translateY: 10,
+              // translateX: -10,
+            },{
+              element: '.item-3',
+              translateY: 10,
+              rotate: [180,180]
+              // translateX: -10
+            },{
+              element: '.item-4',
+              translateY: 10,
+              // translateX: 10
+            },{
+              element: '.item-5',
+              translateY: 10,
+              rotate: [180,180]
+              // translateX: 10
+            },{
+              element: '.item-6',
+              translateY: 10,
+              // translateX: 10
+            },{
+              element: '.item-7',
+              translateY: 10,
+              rotate: [180,180]
+              // translateX: 10   
+            }     
           ]
         },{
           wrapper: '#second-section',
-          duration: 2000,
+          duration: 10000,
           animations: [
             {
               element: '.third-line',
@@ -92,6 +116,8 @@ init = function(){
         return 0;
       case 'scale':
         return 1;
+      case 'skew':
+        return 0;
       default:
         return null;
     }
@@ -175,17 +201,18 @@ setScrollTops = function(){
 }
 
 animateElements = function(){
-  var animation, translateY, translateX, scale, rotate, opacity;
+  var animation, translateY, translateX, scale, rotate, skew, opacity;
   for(var i = 0; i<keyframes[currentKeyframe].animations.length; i++){
     animation = keyframes[currentKeyframe].animations[i];
     translateY = calcValue(animation, 'translateY');
     translateX = calcValue(animation, 'translateX');     
     scale = calcValue(animation, 'scale');
     rotate  = calcValue(animation, 'rotate');
+    skew = calcValue(animation, 'skew');
     opacity = calcValue(animation, 'opacity');
 
     $(animation.element).css({
-      'transform': 'translate3d(' + translateX + 'em, ' + translateY + 'em, 0) scale(' + scale + ') rotate(' + rotate + 'deg)',
+      'transform': 'translate3d(' + translateX + 'em, ' + translateY + 'em, 0) scale(' + scale + ') rotate(' + rotate + 'deg) skew('+ skew +'deg)',
       'opacity' : opacity 
     })
   }
