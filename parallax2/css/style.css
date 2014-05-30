@@ -28,7 +28,7 @@
   position: fixed;
   height: 70px;
   width: 70px;
-  background: #fff;
+  background: #504F4C;
   top: -146px;
   left: 50%;
   margin-left: 15px; }
@@ -39,15 +39,16 @@
   height: 0;
   border-top: 0px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 50px #fff solid;
   border-left: 50px solid transparent; }
 
 .triangle-small-1 {
+  border-bottom: 50px #DCD9D0 solid;
   top: -186px;
   left: 50%;
   margin-left: 26px; }
 
 .triangle-small-2 {
+  border-bottom: 50px #908D88 solid;
   top: -110px;
   left: 50%;
   margin-left: -50px; }
@@ -58,7 +59,7 @@
   height: 0;
   border-top: 0px solid transparent;
   border-right: 71px solid transparent;
-  border-bottom: 71px #fff solid;
+  border-bottom: 71px #F7F3E9 solid;
   border-left: 71px solid transparent;
   top: -356px;
   top: -71px;
@@ -72,26 +73,28 @@
   height: 0;
   border-top: 0px solid transparent;
   border-right: 100px solid transparent;
-  border-bottom: 100px #fff solid;
   border-left: 100px solid transparent; }
 
 .triangle-large-1 {
+  border-bottom: 100px #9D9A94 solid;
   top: -212px;
   left: 2px;
   left: 50%;
   margin-left: -100px; }
 
 .triangle-large-2 {
+  border-bottom: 100px #767470 solid;
   top: -161px;
   left: -49px;
   left: 50%;
   margin-left: -151px; }
 
 .parallelogram {
+  z-index: -1;
   position: fixed;
   height: 48px;
   width: 99px;
-  background: #fff;
+  background: #ABA8A1;
   top: -344px;
   top: -59px;
   left: 26px;

@@ -273,6 +273,92 @@ $ (function(){
             }     
           ]
         },{
+          wrapper: '#tangram',
+          duration: 1000,
+          animations: [
+            {
+              element: '.square',
+              translateY: [10,11.1],
+              translateX: [-4,-1.5],
+              rotate: [45,45]
+            },{
+              element: '.triangle-small-1',
+              translateY: [10,16.9],
+              translateX: [-4, -.77],
+              rotate: [-90,135]
+            },{
+              element: '.triangle-small-2',
+              translateY: [8.4,11.6],
+              translateX: [-3.5, -1],
+              rotate: [90,90]
+            },{
+              element: '.triangle-medium',
+              translateY: [9.5,12.4],
+              translateX: [-2.3,1.1],
+              rotate: [270,0]
+            },{
+              element: '.triangle-large-1',
+              translateY: [15,14.25],
+              translateX: [1.4,-.45],
+              rotate: [135,-90]
+            },{
+              element: '.triangle-large-2',
+              translateY: [11.7,13.2],
+              translateX: [2.15,2.71],
+              rotate: [90,90]
+            },{
+              element: '.parallelogram',
+              translateY: [8.75,8.75],
+              translateX: [-.95, -.95],
+              rotate: [45, 45],
+              scaleX: [-1, -1],
+              skew: [-45,-45]
+            }     
+          ]
+        },{
+          wrapper: '#tangram',
+          duration: 100,
+          animations: [
+            {
+              element: '.square',
+              translateY: [11.1,11.1],
+              translateX: [-1.5,-1.5],
+              rotate: [45,45]
+            },{
+              element: '.triangle-small-1',
+              translateY: [16.9,16.9],
+              translateX: [-.77, -.77],
+              rotate: [135,135]
+            },{
+              element: '.triangle-small-2',
+              translateY: [11.6,11.6],
+              translateX: [-1, -1],
+              rotate: [90,90]
+            },{
+              element: '.triangle-medium',
+              translateY: [12.4,12.4],
+              translateX: [1.1,1.1],
+              rotate: [0,0]
+            },{
+              element: '.triangle-large-1',
+              translateY: [14.25,14.25],
+              translateX: [-.45,-.45],
+              rotate: [-90,-90]
+            },{
+              element: '.triangle-large-2',
+              translateY: [13.2,13.2],
+              translateX: [2.71,2.71],
+              rotate: [90,90]
+            },{
+              element: '.parallelogram',
+              translateY: [8.75,8.75],
+              translateX: [-.95, -.95],
+              rotate: [45, 45],
+              scaleX: [-1, -1],
+              skew: [-45,-45]
+            }     
+          ]
+        },{
           wrapper: '#ending',
           duration: 5000,
           animations: []
