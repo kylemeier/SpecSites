@@ -146,7 +146,7 @@ $ (function(){
           ]
         },{
           wrapper: '#tangram',
-          duration: 300,
+          duration: 500,
           animations: [
             {
               element: '.square',
@@ -231,7 +231,7 @@ $ (function(){
           ]
         },{
           wrapper: '#tangram',
-          duration: 300,
+          duration: 500,
           animations: [
             {
               element: '.square',
@@ -317,7 +317,7 @@ $ (function(){
           ]
         },{
           wrapper: '#tangram',
-          duration: 300,
+          duration: 500,
           animations: [
             {
               element: '.square',
@@ -489,8 +489,22 @@ $ (function(){
           ]
         },{
           wrapper: '#ending',
-          duration: 5000,
-          animations: []
+          duration: 1000,
+          animations: [
+            {
+              element: '.final-line',
+              opacity:[0,1]
+            }
+          ]
+        },{
+          wrapper: '#ending',
+          duration: 1000,
+          animations: [
+            {
+              element: '.final-line',
+              opacity:[1,1]
+            }
+          ]
         }
       ];
 
