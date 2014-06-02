@@ -21,6 +21,26 @@
     font-style: italic;
 
 }
+
+.error-message{
+	display:none;
+}
+
+.error .error-message{
+	position:fixed;
+	font-family: 'proxima_nova';
+	display:block;
+	color:#fff;
+	width:80%;
+	height:100%;
+	margin: 0 10%;
+	top:30%;
+	text-align:center;
+	font-size:1.5em;
+}
+.error .container{
+	display: none;
+}
 .background{
 	//image from http://www.freeimages.com/photo/1440661
 	background: url(../images/bg.jpg);
@@ -32,7 +52,6 @@
 .wrapper{
 	display:none;
 }
-
 #intro{
 	position:fixed;
 	color:#fff;
@@ -51,10 +70,6 @@
 	width:100%;
 	top:100%;
 	font-size:3em;
-
-}
-
-.tangram{
 
 }
 
@@ -99,9 +114,7 @@
 	border-right: 71px solid transparent; 
 	border-bottom: 71px #760200 solid; 
 	border-left: 71px solid transparent;
-    top:-356px;
     top:-71px;
-	left:107px;
 	left:50%;
 	margin-left: 5px;
 }
@@ -118,7 +131,6 @@
 .triangle-large-1{
 	border-bottom: 100px #762100 solid; 
 	top:-212px;
-	left:2px;
 	left:50%;
 	margin-left:-100px;
 
@@ -127,7 +139,6 @@
 .triangle-large-2{
 	border-bottom: 100px #DC0400 solid; 
 	top:-161px;
-	left:-49px;
 	left:50%;
 	margin-left:-151px;
 }
@@ -138,12 +149,12 @@
 	height:48px;
 	width:99px;
 	background:#900300;
-	top:-344px;
 	top:-59px;
-	left:26px;
 	left:50%;
 	margin-left: -75px;
 }
+
+
 
 .final-line{
 	font-family: 'proxima_nova';

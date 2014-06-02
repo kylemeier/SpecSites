@@ -6,6 +6,7 @@ $ (function(){
       $window = $(window),
       $body = $('body'),
       $html = $('html'),
+      startClicked = 0,
       wrappers = [],
       currentWrapper = null,
       bodyHeight = 0,
@@ -15,6 +16,7 @@ $ (function(){
       scrollTop = 0,
       relativeScrollTop = 0,
       currentKeyframe = 0,
+      isMobile = $html.hasClass('touch'),
       keyframes = [
         {
           wrapper: '#intro',
@@ -512,7 +514,9 @@ $ (function(){
 init = function(){
   scrollIntervalID = setInterval(updatePage,10);
   setupValues();
-  $window.resize(resizeHandler);
+  if(isTouchDevice()){
+    $body.addClass('error');
+  }
 }
 
 /**
@@ -605,6 +609,11 @@ buildPage = function(){
   //   return animatedElements;
   // };
 
+// if(isPhone){
+
+
+// }
+
 /**
  * Set values for scroll top related variables
  */
@@ -612,6 +621,18 @@ setScrollTops = function(){
   if($window.scrollTop()< 0){
     $window.scrollTop(0);
   }
+  // if (window.pageYOffset > 0){
+  //   if(scrollTop < 2000){
+  //     scrollTop +=10;
+  //     $window.scrollTop(scrollTop);
+  //   }
+  // }
+  // if (window.pageYOffset > 2000){
+  //   if(scrollTop < 4000){
+  //     scrollTop +=10;
+  //     $window.scrollTop(scrollTop);
+  //   }
+  // }
   scrollTop = $window.scrollTop();
   relativeScrollTop = scrollTop - prevKeyframesDurations;
 }
@@ -641,8 +662,6 @@ animateElements = function(){
       } else {
         value = getDefaultPropertyValue(property);
       }
-      // value = +value.toFixed(2) 
-      // TEMPORARILY REMOVED CAUSE scaleX DOESN'T WORK WITHA AGRESSIVE ROUNDING LIKE THIS
       return value;
     }
 
@@ -673,8 +692,14 @@ animateElements = function(){
     }
     resizeHandler = function(){
     }
+    $('#start').on('click', function(){
+      startClicked = 1;
+    });
+
+    isTouchDevice = function() {
+      return 'ontouchstart' in window // works on most browsers 
+      || 'onmsgesturechange' in window; // works on ie10
+    }
  init();
-
 })
-
 }).call(this);
