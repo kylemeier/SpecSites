@@ -1,7 +1,7 @@
 (function(){ 
 $ (function(){
   var firstVar = 0,
-      properties = ['translateX','translateY', 'opacity', 'rotate', 'scaleXX', 'skew'];
+      properties = ['translateX','translateY', 'opacity', 'rotate', 'scaleXX', 'skew'],
       $doc = $(document),
       $window = $(window),
       $body = $('body'),
