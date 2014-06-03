@@ -68,7 +68,7 @@ $ (function(){
               skew: [-45,-45]  
             },{
               element: '#section-nav',
-              translateX: -2,
+              translateX: [0,-2]
             },{
               element: '#turtle',
               opacity: [.5,.5]
@@ -117,7 +117,10 @@ $ (function(){
               translateY: [5,8],
               translateX: -6,
               skew: [-45,-45]  
-            }     
+            },{
+              element: '#section-nav',
+              translateX: [-2, -2]
+            }    
           ]
         },{
           wrapper: '#tangram',
@@ -477,6 +480,9 @@ $ (function(){
               rotate: [0, 0],
               scaleX: [1, 1],
               skew: [-45,-45]
+            },{
+              element: '#section-nav',
+              translateX: [-2, -2]
             }     
           ]
         },{
@@ -580,7 +586,6 @@ init = function(){
   }
 
 updatePage = function(){
-  console.log(scrollTop);
   window.requestAnimationFrame(function(){
       setScrollTops();
     if (scrollTop >= 0 && scrollTop <= (bodyHeight - windowHeight)){
@@ -691,75 +696,73 @@ animateElements = function(){
   }
 }
 
-    calcValue = function(animation, property) {
-      var value = animation[property];
-      if(value) {
-        value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
-      } else {
-        value = getDefaultPropertyValue(property);
-      }
-      return value;
-    }
+calcValue = function(animation, property) {
+  var value = animation[property];
+  if(value) {
+    value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
+  } else {
+    value = getDefaultPropertyValue(property);
+  }
+  return value;
+}
 
-    easeInOutQuad = function (t, b, c, d) {
-      //sinusoadial in and out
-      return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
-    };
+easeInOutQuad = function (t, b, c, d) {
+  //sinusoadial in and out
+  return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+};
 
-    setKeyframe = function() {
-      if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
-          prevKeyframesDurations += keyframes[currentKeyframe].duration;
-          currentKeyframe++;
-          showCurrentWrappers();
-      } else if(scrollTop < prevKeyframesDurations) {
-          currentKeyframe--;
-          prevKeyframesDurations -= keyframes[currentKeyframe].duration;
-          showCurrentWrappers();
-      }
-    }
+setKeyframe = function() {
+  if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
+      prevKeyframesDurations += keyframes[currentKeyframe].duration;
+      currentKeyframe++;
+      showCurrentWrappers();
+  } else if(scrollTop < prevKeyframesDurations) {
+      currentKeyframe--;
+      prevKeyframesDurations -= keyframes[currentKeyframe].duration;
+      showCurrentWrappers();
+  }
+}
 
-    showCurrentWrappers = function() {
-      var i;
-      if(keyframes[currentKeyframe].wrapper != currentWrapper) {
-        $(currentWrapper).hide();
-        $(keyframes[currentKeyframe].wrapper).show();
-        currentWrapper = keyframes[currentKeyframe].wrapper;
-      }
-    }
-    resizeHandler = function(){
-    }
-    clickHandler = function(stopPoint){
-      if(scrollTop < stopPoint){
-        scrollDir = 1;
-      }
-      if(scrollTop > stopPoint){
-        scrollDir = - 1; 
-      }
-      scrollDist = Math.abs(scrollTop - stopPoint);
-    }
+showCurrentWrappers = function() {
+  var i;
+  if(keyframes[currentKeyframe].wrapper != currentWrapper) {
+    $(currentWrapper).hide();
+    $(keyframes[currentKeyframe].wrapper).show();
+    currentWrapper = keyframes[currentKeyframe].wrapper;
+  }
+}
+clickHandler = function(stopPoint){
+  if(scrollTop < stopPoint){
+    scrollDir = 1;
+  }
+  if(scrollTop > stopPoint){
+    scrollDir = - 1; 
+  }
+  scrollDist = Math.abs(scrollTop - stopPoint);
+}
 
-    $('#turtle').on('click', function(){
-      event.preventDefault()
-      clickHandler(4000);
-    });
+$('#turtle').on('click', function(){
+  event.preventDefault()
+  clickHandler(4000);
+});
+$('#fox').on('click', function(){
+  event.preventDefault()
+  clickHandler(5550);
+});
+$('#cardinal').on('click', function(){
+  event.preventDefault()
+  clickHandler(7100);
+});
+$("a").hover(function(){
+  $(this).find('span').show();
+}, function(){
+  $(this).find('span').hide();
+});
+isTouchDevice = function() {
+  return 'ontouchstart' in window // works on most browsers 
+  || 'onmsgesturechange' in window; // works on ie10
+}
 
-    $('#fox').on('click', function(){
-      event.preventDefault()
-      clickHandler(5550);
-    });
-    $('#cardinal').on('click', function(){
-      event.preventDefault()
-      clickHandler(7100);
-    });
-    $("a").hover(function(){
-      $(this).find('span').show();
-    }, function(){
-      $(this).find('span').hide();
-    });
-    isTouchDevice = function() {
-      return 'ontouchstart' in window // works on most browsers 
-      || 'onmsgesturechange' in window; // works on ie10
-    }
  init();
 })
 }).call(this);
