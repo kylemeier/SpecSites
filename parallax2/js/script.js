@@ -6,7 +6,10 @@ $ (function(){
       $window = $(window),
       $body = $('body'),
       $html = $('html'),
-      startClicked = 0,
+      scrollDir = 0,
+      scrollDist = 0,
+      foxClicked = 0,
+      cardinalClicked = 0,     
       wrappers = [],
       currentWrapper = null,
       bodyHeight = 0,
@@ -63,7 +66,19 @@ $ (function(){
               element: '.parallelogram',
               translateY: 5,
               skew: [-45,-45]  
-            }     
+            },{
+              element: '#section-nav',
+              translateX: -2,
+            },{
+              element: '#turtle',
+              opacity: [.5,.5]
+            },{
+              element: '#fox',
+              opacity: [.5,.5]
+            },{
+              element: '#cardinal',
+              opacity: [.5,.5]
+            }   
           ]
         },{
           wrapper: '#tangram',
@@ -144,7 +159,10 @@ $ (function(){
               translateX: [-6, 3.9],
               rotate: 5,
               skew: [-45,-45]
-            }     
+            },{
+              element: '#turtle',
+              opacity: [.5,1]
+            }      
           ]
         },{
           wrapper: '#tangram',
@@ -186,7 +204,7 @@ $ (function(){
               translateX: [3.9, 3.9],
               rotate: [5, 5],
               skew: [-45,-45]
-            }     
+            }      
           ]
         },{
           wrapper: '#tangram',
@@ -229,7 +247,13 @@ $ (function(){
               rotate: [5, 45],
               scaleX: -1,
               skew: [-45,-45]
-            }     
+            },{
+              element: '#turtle',
+              opacity: [1,.5]
+            },{
+              element: '#fox',
+              opacity: [.5,1]
+            }      
           ]
         },{
           wrapper: '#tangram',
@@ -315,7 +339,13 @@ $ (function(){
               rotate: [45, 45],
               scaleX: [-1, -1],
               skew: [-45,-45]
-            }     
+            },{
+              element: '#fox',
+              opacity: [1,.5]
+            },{
+              element: '#cardinal',
+              opacity: [.5,1]
+            }       
           ]
         },{
           wrapper: '#tangram',
@@ -358,7 +388,10 @@ $ (function(){
               rotate: [45, 45],
               scaleX: [-1, -1],
               skew: [-45,-45]
-            }     
+            },{
+              element: '#cardinal',
+              opacity: [1,.5]
+            }      
           ]
         },{
           wrapper: '#tangram',
@@ -487,6 +520,9 @@ $ (function(){
               rotate: [0, 0],
               scaleX: [1, 1],
               skew: [-45,-45]
+            },{
+              element: '#section-nav',
+              translateX: [-2,0]
             }     
           ]
         },{
@@ -544,8 +580,9 @@ init = function(){
   }
 
 updatePage = function(){
+  console.log(scrollTop);
   window.requestAnimationFrame(function(){
-    setScrollTops();
+      setScrollTops();
     if (scrollTop >= 0 && scrollTop <= (bodyHeight - windowHeight)){
       animateElements();
       setKeyframe();
@@ -621,19 +658,18 @@ setScrollTops = function(){
   if($window.scrollTop()< 0){
     $window.scrollTop(0);
   }
-  // if (window.pageYOffset > 0){
-  //   if(scrollTop < 2000){
-  //     scrollTop +=10;
-  //     $window.scrollTop(scrollTop);
-  //   }
-  // }
-  // if (window.pageYOffset > 2000){
-  //   if(scrollTop < 4000){
-  //     scrollTop +=10;
-  //     $window.scrollTop(scrollTop);
-  //   }
-  // }
-  scrollTop = $window.scrollTop();
+  if(scrollDist === 0){
+    scrollTop = $window.scrollTop();
+  }else{
+    if (scrollDist > 50){
+      scrollTop += scrollDir*50;
+      scrollDist -= Math.abs(scrollDir)*50;
+      $window.scrollTop(scrollTop);
+    }else{
+      scrollDist = 0;
+      scrollDir = 0;
+    }
+  }
   relativeScrollTop = scrollTop - prevKeyframesDurations;
 }
 
@@ -692,10 +728,34 @@ animateElements = function(){
     }
     resizeHandler = function(){
     }
-    $('#start').on('click', function(){
-      startClicked = 1;
+    clickHandler = function(stopPoint){
+      if(scrollTop < stopPoint){
+        scrollDir = 1;
+      }
+      if(scrollTop > stopPoint){
+        scrollDir = - 1; 
+      }
+      scrollDist = Math.abs(scrollTop - stopPoint);
+    }
+
+    $('#turtle').on('click', function(){
+      event.preventDefault()
+      clickHandler(4000);
     });
 
+    $('#fox').on('click', function(){
+      event.preventDefault()
+      clickHandler(5550);
+    });
+    $('#cardinal').on('click', function(){
+      event.preventDefault()
+      clickHandler(7100);
+    });
+    $("a").hover(function(){
+      $(this).find('span').show();
+    }, function(){
+      $(this).find('span').hide();
+    });
     isTouchDevice = function() {
       return 'ontouchstart' in window // works on most browsers 
       || 'onmsgesturechange' in window; // works on ie10

@@ -27,6 +27,11 @@
   text-align: center;
   font-size: 1.5em; }
 
+.container {
+  width: 100%;
+  height: 100%;
+  position: fixed; }
+
 .error .container {
   display: none; }
 
@@ -55,7 +60,7 @@
   color: #fff;
   height: 100%;
   width: 100%;
-  top: 100%;
+  top: 0%;
   font-size: 3em; }
 
 .square {
@@ -65,7 +70,8 @@
   background: #501600;
   top: -146px;
   left: 50%;
-  margin-left: 15px; }
+  margin-left: 15px;
+  opacity: 0; }
 
 .triangle-small-1, .triangle-small-2 {
   position: fixed;
@@ -73,7 +79,8 @@
   height: 0;
   border-top: 0px solid transparent;
   border-right: 50px solid transparent;
-  border-left: 50px solid transparent; }
+  border-left: 50px solid transparent;
+  opacity: 0; }
 
 .triangle-small-1 {
   border-bottom: 50px #DC3D00 solid;
@@ -97,7 +104,8 @@
   border-left: 71px solid transparent;
   top: -71px;
   left: 50%;
-  margin-left: 5px; }
+  margin-left: 5px;
+  opacity: 0; }
 
 .triangle-large-1, .triangle-large-2 {
   position: fixed;
@@ -105,7 +113,8 @@
   height: 0;
   border-top: 0px solid transparent;
   border-right: 100px solid transparent;
-  border-left: 100px solid transparent; }
+  border-left: 100px solid transparent;
+  opacity: 0; }
 
 .triangle-large-1 {
   border-bottom: 100px #762100 solid;
@@ -127,7 +136,41 @@
   background: #900300;
   top: -59px;
   left: 50%;
-  margin-left: -75px; }
+  margin-left: -75px;
+  opacity: 0; }
+
+#section-nav {
+  position: relative;
+  float: right;
+  top: 30%;
+  width: 60px;
+  height: 100%;
+  right: -65px; }
+  #section-nav li a {
+    position: relative;
+    display: block;
+    height: 50px;
+    width: 50px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: #fff; }
+    #section-nav li a span {
+      font-family: 'proxima_nova';
+      display: none;
+      width: 202px;
+      padding-left: 5px;
+      position: absolute;
+      float: left;
+      left: -155px;
+      top: -4px;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      font-size: .8em;
+      line-height: 57px;
+      border-radius: 5px; }
+      #section-nav li a span:hover {
+        display: block; }
 
 .final-line {
   font-family: 'proxima_nova';
@@ -137,4 +180,5 @@
   top: 50%;
   margin-top: -64px;
   left: 50%;
-  margin-left: -71px; }
+  margin-left: -71px;
+  opacity: 0; }
