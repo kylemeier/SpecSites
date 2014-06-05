@@ -7,7 +7,6 @@
         scrollTimeoutID = 0,
         scrollDir = 0,
         scrollDist = 0,    
-        wrappers = [],
         currentWrapper = null,
         bodyHeight = 0,
         windowHeight = 0,
@@ -553,12 +552,12 @@
      */
     init = function(){
 
-      //Set up page updating rather than tying updates to scroll events
+      //set up page updating rather than tying updates to scroll events
       scrollIntervalID = setInterval(updatePage,10);
 
       buildPage();
 
-      //Throw an error if a touch device is detected
+      //throw an error if a touch device is detected
       if(isTouchDevice()){
         $body.addClass('error');
       }
@@ -609,7 +608,7 @@
       window.requestAnimationFrame(function(){
           setScrollTops();
 
-        //Ensure user has started scrolling, but hasn't reached the end of the page  
+        //ensure user has started scrolling, but hasn't reached the end of the page  
         if (scrollTop >= 0 && scrollTop <= (bodyHeight - windowHeight)){
           animateElements();
           setKeyframe();
@@ -617,143 +616,258 @@
       });
     }
 
-buildPage = function(){
-  var value, valueSet;
+    /**
+     * [buildPage description]
+     * @var {string} value: takes the value of either an element name or property name 
+     * @var {array} valueSet: pairing of each property and its default value if an initial value isn't given
+     */
+    buildPage = function(){
+      var value, valueSet;
 
-  windowHeight = $(window).height();
-  for (var i = 0; i < keyframes.length; i++) {     //cycling through keyframes
-    bodyHeight += keyframes[i].duration;
-    if($.inArray(keyframes[i].wrapper, wrappers) === -1){
-      wrappers.push(keyframes[i].wrapper);
-    }
-    for (var j = 0; j < keyframes[i].animations.length; j++){ //cycling through animations within each keyframe
-      for (key in keyframes[i].animations[j]){
-        value = keyframes[i].animations[j][key]
-        if(key !== 'element' && value instanceof Array === false){
-          valueSet = [];
-          valueSet.push(getDefaultPropertyValue(key),value);
-          value = valueSet;
+      windowHeight = $(window).height();
+
+      //cycling through keyframes
+      for (var i = 0; i < keyframes.length; i++) {
+
+        //increase bodyHeight variable according to length of each animation     
+        bodyHeight += keyframes[i].duration;
+
+        //cycling through animations within each keyframe
+        for (var j = 0; j < keyframes[i].animations.length; j++){
+
+          //cycling through each key (element and property names) within each animation object
+          for (key in keyframes[i].animations[j]){
+
+            //takes the value of current element/property name
+            value = keyframes[i].animations[j][key]
+
+            //build out valueSet if value is a property value that doesn't have an initial value
+            if(key !== 'element' && value instanceof Array === false){
+              valueSet = [];
+              valueSet.push(getDefaultPropertyValue(key),value);
+              value = valueSet;
+            }
+            keyframes[i].animations[j][key] = value;
+          }
         }
-          keyframes[i].animations[j][key] = value;
+      }
+
+      //set body height to the length of all animations
+      $body.height(bodyHeight);
+
+      //reset screen to top of page upon loading/user refresh
+      setTimeout(function(){
+      $window.scrollTop(0); 
+      },100);
+
+      //show only the first HTML section, set to a variable for later adjustments
+      currentWrapper = keyframes[0].wrapper;
+      $(currentWrapper).show();
+    }
+
+    /**
+     * Set values for scroll top related variables
+     */
+    setScrollTops = function(){
+
+      //prevent user from scrolling past beginning or end of page
+      if($window.scrollTop() < 0){
+        $window.scrollTop(0);
+      }
+      if($window.scrollTop() > (bodyHeight - windowHeight)){
+        $window.scrollTop(bodyHeight - windowHeight);
+      }
+
+      //tie scrollTop to window's scroll unless a button has been pressed
+      if(scrollDist === 0){
+        scrollTop = $window.scrollTop();
+      }else{
+
+        //if a button has been pressed, scrollDist (scroll distance) will have a value
+        //adjust scrollDist/scrollTop until scrollDist would go into negative by adjusting again
+        if (scrollDist > 50){
+
+          //auto scroll by 50 pixels each iteration
+          scrollTop += scrollDir*50;
+          scrollDist -= Math.abs(scrollDir)*50;
+          $window.scrollTop(scrollTop);
+
+        }else{
+
+          //set values to 0 after auto scrolling completes
+          scrollDist = 0;
+          scrollDir = 0;
+        }
+      }
+
+      //check how far current scroll is from last keyframe
+      relativeScrollTop = scrollTop - prevKeyframesDurations;
+    }
+
+    /**
+     * Sets variables needed to animate to each button's animal shape
+     * @param  {number} stopPoint: designates, in scroll distance, where the animal shape can be found
+     */
+    clickHandler = function(stopPoint){
+
+      //if user hasn't scrolled to the shape yet, scroll direction will be forward
+      if(scrollTop < stopPoint){
+        scrollDir = 1;
+      }
+
+      //if user has scrolled past the shape, scroll direction will be backward
+      if(scrollTop > stopPoint){
+        scrollDir = - 1; 
+      }
+
+      //set scroll distance for setScrollTops to know how far to move page
+      scrollDist = Math.abs(scrollTop - stopPoint);
+    }
+
+    //each listens for a click event and sends the appropriate scroll distance to clickHandler
+    $('#turtle').on('click', function(){
+      event.preventDefault()
+      clickHandler(4000);
+    });
+    $('#fox').on('click', function(){
+      event.preventDefault()
+      clickHandler(5550);
+    });
+    $('#cardinal').on('click', function(){
+      event.preventDefault()
+      clickHandler(7100);
+    });
+
+    //show/hide animal names next to buttons
+    $("a").hover(function(){
+      $(this).find('span').show();
+    }, function(){
+      $(this).find('span').hide();
+    });
+
+    /**
+     * Animates each element in current keyframe
+     * @var {object} animation: object within animations array
+     * @var {number} all others: how far that property will be moved
+     */
+    animateElements = function(){
+      var animation, translateY, translateX, scaleX, rotate, skew, opacity;
+
+      //cycle through each animation object within the current keyframe
+      for(var i = 0; i<keyframes[currentKeyframe].animations.length; i++){
+
+        //set variables
+        animation = keyframes[currentKeyframe].animations[i];
+        translateY = calcValue(animation, 'translateY');
+        translateX = calcValue(animation, 'translateX');     
+        scaleX = calcValue(animation, 'scaleX');
+        rotate  = calcValue(animation, 'rotate');
+        skew = calcValue(animation, 'skew');
+        opacity = calcValue(animation, 'opacity');
+
+        //inject CSS to adjust properties
+        $(animation.element).css({
+          'transform': 'translate3d(' + translateX + 'em, ' + translateY + 'em, 0) scaleX(' + scaleX + ') rotate(' + rotate + 'deg) skew('+ skew +'deg)',
+          'opacity' : opacity 
+        })
       }
     }
-  }
-  $body.height(bodyHeight);
-  setTimeout(function(){
-  $window.scrollTop(0); 
-  },100);
 
-  currentWrapper = wrappers[0];
-  $(currentWrapper).show();
-}
+    /**
+     * Determines how far the specified property will be adjusted
+     * @param  {object} animation: object within animations array 
+     * @param  {string} property: name of property to be adjusted
+     * @var    {array} value: initial/default value of property and new value of property
+     * @return {number} value: how far property will be adjusted
+     */
+    calcValue = function(animation, property) {
+      var value = animation[property];
 
-/**
- * Set values for scroll top related variables
- */
-setScrollTops = function(){
-  if($window.scrollTop()< 0){
-    $window.scrollTop(0);
-  }
-  if(scrollDist === 0){
-    scrollTop = $window.scrollTop();
-  }else{
-    if (scrollDist > 50){
-      scrollTop += scrollDir*50;
-      scrollDist -= Math.abs(scrollDir)*50;
-      $window.scrollTop(scrollTop);
-    }else{
-      scrollDist = 0;
-      scrollDir = 0;
+      //if a value is given, apply an easing function to determine actual adjustment distance
+      if(value) {
+        value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
+      } else {
+
+        //if no value given, use default value
+        value = getDefaultPropertyValue(property);
+      }
+      return value;
     }
-  }
-  relativeScrollTop = scrollTop - prevKeyframesDurations;
-}
 
-animateElements = function(){
-  var animation, translateY, translateX, scaleX, rotate, skew, opacity;
-  for(var i = 0; i<keyframes[currentKeyframe].animations.length; i++){
-    animation = keyframes[currentKeyframe].animations[i];
-    translateY = calcValue(animation, 'translateY');
-    translateX = calcValue(animation, 'translateX');     
-    scaleX = calcValue(animation, 'scaleX');
-    rotate  = calcValue(animation, 'rotate');
-    skew = calcValue(animation, 'skew');
-    opacity = calcValue(animation, 'opacity');
+    /**
+     * Easing function (sinusoadial in and out) for better looking animations
+     * @param  {number} t: difference between current scroll distance and the last keyframe
+     * @param  {number} b: default/initial value of property
+     * @param  {number} c: difference between default/intial value and new value
+     * @param  {number} d: length of current animation
+     * @return {number} amount property value will change
+     */
+    easeInOutQuad = function (t, b, c, d) {
+      return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+    };
 
-    $(animation.element).css({
-      'transform': 'translate3d(' + translateX + 'em, ' + translateY + 'em, 0) scaleX(' + scaleX + ') rotate(' + rotate + 'deg) skew('+ skew +'deg)',
-      'opacity' : opacity 
-    })
-  }
-}
 
-calcValue = function(animation, property) {
-  var value = animation[property];
-  if(value) {
-    value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
-  } else {
-    value = getDefaultPropertyValue(property);
-  }
-  return value;
-}
+    /**
+     * Adjusts current keyframe if necessary
+     */
+    setKeyframe = function() {
 
-easeInOutQuad = function (t, b, c, d) {
-  //sinusoadial in and out
-  return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
-};
+      //if user has scrolled to next keyframe
+      if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
 
-setKeyframe = function() {
-  if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
-      prevKeyframesDurations += keyframes[currentKeyframe].duration;
-      currentKeyframe++;
-      showCurrentWrappers();
-  } else if(scrollTop < prevKeyframesDurations) {
-      currentKeyframe--;
-      prevKeyframesDurations -= keyframes[currentKeyframe].duration;
-      showCurrentWrappers();
-  }
-}
+          //add current keyframe distance to previous keyframe distances
+          prevKeyframesDurations += keyframes[currentKeyframe].duration;
 
-showCurrentWrappers = function() {
-  var i;
-  if(keyframes[currentKeyframe].wrapper != currentWrapper) {
-    $(currentWrapper).hide();
-    $(keyframes[currentKeyframe].wrapper).show();
-    currentWrapper = keyframes[currentKeyframe].wrapper;
-  }
-}
-clickHandler = function(stopPoint){
-  if(scrollTop < stopPoint){
-    scrollDir = 1;
-  }
-  if(scrollTop > stopPoint){
-    scrollDir = - 1; 
-  }
-  scrollDist = Math.abs(scrollTop - stopPoint);
-}
+          //iterate to next keyframe 
+          currentKeyframe++;
 
-$('#turtle').on('click', function(){
-  event.preventDefault()
-  clickHandler(4000);
-});
-$('#fox').on('click', function(){
-  event.preventDefault()
-  clickHandler(5550);
-});
-$('#cardinal').on('click', function(){
-  event.preventDefault()
-  clickHandler(7100);
-});
-$("a").hover(function(){
-  $(this).find('span').show();
-}, function(){
-  $(this).find('span').hide();
-});
-isTouchDevice = function() {
-  return 'ontouchstart' in window // works on most browsers 
-  || 'onmsgesturechange' in window; // works on ie10
-}
- init();
+          //show only new HTML section
+          showCurrentWrappers();
 
-})
+      //if user has scrolled to previous keyframe
+      } else if(scrollTop < prevKeyframesDurations) {
+
+          //move back a keyframe
+          currentKeyframe--;
+
+          //remove now current keyframe distance fomr previous keyframe distances
+          prevKeyframesDurations -= keyframes[currentKeyframe].duration;
+
+          //show only the new HTML section
+          showCurrentWrappers();
+      }
+    }
+
+    /**
+     * Determines which wrapper (HTML section) to show
+     */
+    showCurrentWrappers = function() {
+
+      //only act if current keyframe doesn't match currently shown wrapper
+      if(keyframes[currentKeyframe].wrapper != currentWrapper) {
+
+        //hide currently shown wrapper
+        $(currentWrapper).hide();
+
+        //show wrapper associated with current keyframe
+        $(keyframes[currentKeyframe].wrapper).show();
+
+        //update variable
+        currentWrapper = keyframes[currentKeyframe].wrapper;
+      }
+    }
+
+    /**
+     * Determines if user's device uses a touch screen
+     * @return {Boolean} true if touch element present, false if not
+     */
+    isTouchDevice = function() {
+      return 'ontouchstart' in window // works on most browsers 
+      || 'onmsgesturechange' in window; // works on ie10
+    }
+
+    //begin initilization
+    init();
+
+  })
 })();
